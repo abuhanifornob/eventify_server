@@ -27,8 +27,7 @@ function verifyToken(req, res, next) {
   next();
 }
 
-const uri =
-  "mongodb+srv://hanifcse90:zfmnsYx8mWbS2Lst@cluster0.qhlqq0n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.CLIENT_URL;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {

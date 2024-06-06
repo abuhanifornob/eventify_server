@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 app.use(cors());
 app.use(express.json());
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 function createToken(user) {
   const token = jwt.sign(

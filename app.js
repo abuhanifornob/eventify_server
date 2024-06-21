@@ -120,6 +120,7 @@ async function run() {
       const user = req.body;
       const email = user?.email;
       const token = createToken(user);
+
       const isUserExists = await eventifyUserInfoCollection.findOne({ email });
       if (isUserExists) {
         res.send({
@@ -132,12 +133,14 @@ async function run() {
         res.send({ token });
       }
     });
+
     app.get("/users/:email", async (req, res) => {
       const email = req.params.email;
 
       const result = await eventifyUserInfoCollection.findOne({ email });
       res.send(result);
     });
+
     app.patch("/users/:email", verifyToken, async (req, res) => {
       const email = req.params.email;
       const updateData = req.body;
